@@ -15,8 +15,8 @@
     "icon"
   ],
   "author": "George Stamate (GxGL) <stamate_george@yahoo.com>",
-  "repository": "gxgl/electron-tray",
-  "bugs": "https://github.com/gxgl/electron-tray/issues",
+  "repository": "gxgl/electron-tray2",
+  "bugs": "https://github.com/gxgl/electron-tra2/issues",
   "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.27.2",
