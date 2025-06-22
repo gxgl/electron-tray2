@@ -1,5 +1,5 @@
 import {Tray, Menu, BrowserWindow} from 'electron';
-import path from 'path';
+import * as path from 'path';
 
 // Menu is a https://electron.atom.io/docs/api/menu-item/
 const defaultMenu = [
@@ -35,14 +35,16 @@ const defaultMenu = [
 ];
 
 class TrayControl {
-  constructor(app, iconPath, menu = defaultMenu) {
+  private app: any; // Consider using a more specific type if available for ElectronApp
+  private appIcon: Tray | null = null;
+  private contextMenu: Menu | null = null;
+
+  constructor(app: any, iconPath: string, menu = defaultMenu) {
     this.app = app;
-    app.on('ready', () => {
-      this.appIcon = new Tray(iconPath);
-      this.contextMenu = Menu.buildFromTemplate(menu);
-      this.appIcon.setToolTip('This is my application.');
-      this.appIcon.setContextMenu(this.contextMenu);
-    });
+    this.appIcon = new Tray(iconPath);
+    this.contextMenu = Menu.buildFromTemplate(menu);
+    this.appIcon.setToolTip('This is my application.');
+    this.appIcon.setContextMenu(this.contextMenu);
   };
 }
 
