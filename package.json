@@ -1,6 +1,6 @@
 {
   "name": "electron-tray2",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Very simple package to add tray icon behaviour to an electron app",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -17,7 +17,10 @@
     "icon"
   ],
   "author": "George Stamate (GxGL) <stamate_george@yahoo.com>",
-  "repository": "gxgl/electron-tray2",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gxgl/electron-tray2.git"
+  },
   "bugs": "https://github.com/gxgl/electron-tra2/issues",
   "license": "MIT",
   "devDependencies": {
