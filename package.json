@@ -21,7 +21,7 @@
     "type": "git",
     "url": "git+https://github.com/gxgl/electron-tray2.git"
   },
-  "bugs": "https://github.com/gxgl/electron-tra2/issues",
+  "bugs": "https://github.com/gxgl/electron-tray2/issues",
   "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.27.2",
