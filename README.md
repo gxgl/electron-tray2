@@ -15,17 +15,17 @@ It mught not work on older versions. If this is the case, please use the origina
 
 ### TypeScript:
 ```typescript
-import TrayControl from 'electron-tray';
+import TrayControl from 'electron-tray2';
 ```
 
 ### JavaScript (ES6 modules):
 ```javascript
-import TrayControl from 'electron-tray';
+import TrayControl from 'electron-tray2';
 ```
 
 ### JavaScript (CommonJS):
 ```javascript
-const TrayControl = require('electron-tray').default;
+const TrayControl = require('electron-tray2').default;
 ```
 
 ```javascript
@@ -35,27 +35,42 @@ const trayControl = new TrayControl(app, iconPath[, menu]);
 
 ### Example:
 ```javascript
-const { app } = require('electron');
-const TrayControl = require('electron-tray').default;
+const { app, BrowserWindow } = require('electron');
+const TrayControl = require('electron-tray2').default;
 const path = require('path');
 
-const iconPath = path.join(__dirname, 'icon.png');
+let trayControl;
 
-// Keep this reference around otherwise the icon will
-//   vanish when the TrayControl instance gets GCed.
-const trayControl = new TrayControl(app, iconPath);
+app.whenReady().then(() => {
+  createWindow();
 
-// ... initialise your app here as normal ...
+  const iconPath = path.join(__dirname, 'icon.png');
+  trayControl = new TrayControl(app, iconPath);
+
+  app.on('activate', function () {
+    if (BrowserWindow.getAllWindows().length === 0) createWindow();
+  });
+});
 ```
 
 ### ES6 Module Example:
 ```javascript
-import { app } from 'electron';
-import TrayControl from 'electron-tray';
+import { app, BrowserWindow } from 'electron';
+import TrayControl from 'electron-tray2';
 import path from 'path';
 
-const iconPath = path.join(__dirname, 'icon.png');
-const trayControl = new TrayControl(app, iconPath);
+let trayControl;
+
+app.whenReady().then(() => {
+  createWindow();
+
+  const iconPath = path.join(__dirname, 'icon.png');
+  trayControl = new TrayControl(app, iconPath);
+
+  app.on('activate', function () {
+    if (BrowserWindow.getAllWindows().length === 0) createWindow();
+  });
+});
 ```
 
 # Changes
